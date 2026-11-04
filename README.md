@@ -34,7 +34,7 @@ Everything is controlled from the terminal.
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Any2IPA.git
+git clone https://github.com/Mare252552/Any2IPA.git
 cd Any2IPA
 ```
 
