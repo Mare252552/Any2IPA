@@ -188,4 +188,4 @@ Any2IPA builds on ideas and technologies from the open-source iOS development ec
 
 ---
 
-**Any2IPA** — iOS signing, without the complexity.
+**Any2IPA** - iOS signing, without the complexity.
