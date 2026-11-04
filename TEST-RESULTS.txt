@@ -1,0 +1,167 @@
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\verify-env\Scripts\python.exe -m unittest discover -s tests -v
+test_archive_attacks (test_any2ipa.ArchiveTests.test_archive_attacks) ... ok
+test_archive_symlink_special_and_reparse (test_any2ipa.ArchiveTests.test_archive_symlink_special_and_reparse) ... ok
+test_central_directory_limit_before_zipfile (test_any2ipa.ArchiveTests.test_central_directory_limit_before_zipfile) ... ok
+test_cli_error_json (test_any2ipa.ArchiveTests.test_cli_error_json) ... ok
+test_cli_subprocess (test_any2ipa.ArchiveTests.test_cli_subprocess) ... ok
+test_crc_failure_and_cleanup (test_any2ipa.ArchiveTests.test_crc_failure_and_cleanup) ... ok
+test_encrypted_and_unsupported_compression (test_any2ipa.ArchiveTests.test_encrypted_and_unsupported_compression) ... ok
+test_inspect_xml_and_binary (test_any2ipa.ArchiveTests.test_inspect_xml_and_binary) ... ok
+test_invalid_layout_and_plist (test_any2ipa.ArchiveTests.test_invalid_layout_and_plist) ... ok
+test_limits (test_any2ipa.ArchiveTests.test_limits) ... ok
+test_no_overwrite (test_any2ipa.ArchiveTests.test_no_overwrite) ... ok
+test_output_inside_source (test_any2ipa.ArchiveTests.test_output_inside_source) ... ok
+test_pack_standalone_app (test_any2ipa.ArchiveTests.test_pack_standalone_app) ... ok
+test_reproducible_pack (test_any2ipa.ArchiveTests.test_reproducible_pack) ... ok
+test_roundtrip_and_content (test_any2ipa.ArchiveTests.test_roundtrip_and_content) ... ok
+test_source_symlink (test_any2ipa.ArchiveTests.test_source_symlink) ... ok
+test_truncation (test_any2ipa.ArchiveTests.test_truncation) ... ok
+test_unsafe_paths (test_any2ipa.ArchiveTests.test_unsafe_paths) ... ok
+test_malicious_signer_output_is_rejected (test_any2ipa.SigningTests.test_malicious_signer_output_is_rejected) ... ok
+test_missing_signer (test_any2ipa.SigningTests.test_missing_signer) ... ok
+test_real_subprocess_with_controlled_signer_stub (test_any2ipa.SigningTests.test_real_subprocess_with_controlled_signer_stub) ... ok
+test_signer_failure_timeout_missing_output (test_any2ipa.SigningTests.test_signer_failure_timeout_missing_output) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.479s
+
+OK
+
+
+$ C:\WINDOWS\system32\cmd.exe /d /c scripts\setup.cmd
+Looking in links: dist
+Processing .\dist\any2ipa-1.0.0-py3-none-any.whl
+Installing collected packages: any2ipa
+Successfully installed any2ipa-1.0.0
+any2ipa: "1.0.0"
+python: "3.14.5"
+platform: "Windows"
+zlib: "1.3.1.zlib-ng"
+zsign: null
+core_ready: true
+apple_signing_assets_generated: false
+note: "zsign is optional for archive operations; no signing/installation verification performed."
+Ready. Run .venv\Scripts\any2ipa.exe --help
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe --version
+Any2IPA 1.0.0
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe doctor --json
+{
+  "any2ipa": "1.0.0",
+  "apple_signing_assets_generated": false,
+  "core_ready": true,
+  "note": "zsign is optional for archive operations; no signing/installation verification performed.",
+  "platform": "Windows",
+  "python": "3.14.5",
+  "zlib": "1.3.1.zlib-ng",
+  "zsign": null
+}
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\python.exe examples/make_demo.py demo.ipa
+Created an unsigned, non-runnable test fixture: demo.ipa
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe inspect demo.ipa --json
+{
+  "app_path": "Payload/Demo.app",
+  "build": "1",
+  "bundle_id": "org.example.any2ipa.demo",
+  "compressed_bytes": 457,
+  "display_name": "Any2IPA Demo",
+  "embedded_profile_present": false,
+  "entries": 2,
+  "executable": "Demo",
+  "minimum_os_version": null,
+  "signature_resources_present": false,
+  "signature_verified": false,
+  "uncompressed_bytes": 457,
+  "version": null
+}
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe extract demo.ipa -o extracted
+app_path: "Payload/Demo.app"
+bundle_id: "org.example.any2ipa.demo"
+executable: "Demo"
+display_name: "Any2IPA Demo"
+version: null
+build: "1"
+minimum_os_version: null
+signature_resources_present: false
+embedded_profile_present: false
+signature_verified: false
+destination: "C:\\Users\\Marko\\Documents\\Codex\\2026-11-04\\referenced-chatgpt-conversation-this-is-an\\work\\release-check\\any2ipa-1.0.0\\extracted"
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe pack extracted -o repacked.ipa
+app_path: "Payload/Demo.app"
+bundle_id: "org.example.any2ipa.demo"
+executable: "Demo"
+display_name: "Any2IPA Demo"
+version: null
+build: "1"
+minimum_os_version: null
+signature_resources_present: false
+embedded_profile_present: false
+signature_verified: false
+entries: 4
+uncompressed_bytes: 457
+compressed_bytes: 288
+output: "C:\\Users\\Marko\\Documents\\Codex\\2026-11-04\\referenced-chatgpt-conversation-this-is-an\\work\\release-check\\any2ipa-1.0.0\\repacked.ipa"
+warning: "Repacking does not create or verify an Apple code signature."
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe inspect repacked.ipa --json
+{
+  "app_path": "Payload/Demo.app",
+  "build": "1",
+  "bundle_id": "org.example.any2ipa.demo",
+  "compressed_bytes": 288,
+  "display_name": "Any2IPA Demo",
+  "embedded_profile_present": false,
+  "entries": 4,
+  "executable": "Demo",
+  "minimum_os_version": null,
+  "signature_resources_present": false,
+  "signature_verified": false,
+  "uncompressed_bytes": 457,
+  "version": null
+}
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\any2ipa.exe pack extracted -o repacked.ipa
+any2ipa: "Output already exists; choose a new path: C:\\Users\\Marko\\Documents\\Codex\\2026-11-04\\referenced-chatgpt-conversation-this-is-an\\work\\release-check\\any2ipa-1.0.0\\repacked.ipa"
+
+
+$ C:\Users\Marko\Documents\Codex\2026-11-04\referenced-chatgpt-conversation-this-is-an\work\release-check\any2ipa-1.0.0\.venv\Scripts\python.exe -m unittest discover -s tests -v
+test_archive_attacks (test_any2ipa.ArchiveTests.test_archive_attacks) ... ok
+test_archive_symlink_special_and_reparse (test_any2ipa.ArchiveTests.test_archive_symlink_special_and_reparse) ... ok
+test_central_directory_limit_before_zipfile (test_any2ipa.ArchiveTests.test_central_directory_limit_before_zipfile) ... ok
+test_cli_error_json (test_any2ipa.ArchiveTests.test_cli_error_json) ... ok
+test_cli_subprocess (test_any2ipa.ArchiveTests.test_cli_subprocess) ... ok
+test_crc_failure_and_cleanup (test_any2ipa.ArchiveTests.test_crc_failure_and_cleanup) ... ok
+test_encrypted_and_unsupported_compression (test_any2ipa.ArchiveTests.test_encrypted_and_unsupported_compression) ... ok
+test_inspect_xml_and_binary (test_any2ipa.ArchiveTests.test_inspect_xml_and_binary) ... ok
+test_invalid_layout_and_plist (test_any2ipa.ArchiveTests.test_invalid_layout_and_plist) ... ok
+test_limits (test_any2ipa.ArchiveTests.test_limits) ... ok
+test_no_overwrite (test_any2ipa.ArchiveTests.test_no_overwrite) ... ok
+test_output_inside_source (test_any2ipa.ArchiveTests.test_output_inside_source) ... ok
+test_pack_standalone_app (test_any2ipa.ArchiveTests.test_pack_standalone_app) ... ok
+test_reproducible_pack (test_any2ipa.ArchiveTests.test_reproducible_pack) ... ok
+test_roundtrip_and_content (test_any2ipa.ArchiveTests.test_roundtrip_and_content) ... ok
+test_source_symlink (test_any2ipa.ArchiveTests.test_source_symlink) ... ok
+test_truncation (test_any2ipa.ArchiveTests.test_truncation) ... ok
+test_unsafe_paths (test_any2ipa.ArchiveTests.test_unsafe_paths) ... ok
+test_malicious_signer_output_is_rejected (test_any2ipa.SigningTests.test_malicious_signer_output_is_rejected) ... ok
+test_missing_signer (test_any2ipa.SigningTests.test_missing_signer) ... ok
+test_real_subprocess_with_controlled_signer_stub (test_any2ipa.SigningTests.test_real_subprocess_with_controlled_signer_stub) ... ok
+test_signer_failure_timeout_missing_output (test_any2ipa.SigningTests.test_signer_failure_timeout_missing_output) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.470s
+
+OK

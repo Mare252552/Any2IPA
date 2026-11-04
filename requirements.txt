@@ -1,0 +1,2 @@
+# No third-party runtime packages. Requires Python 3.10+ with zlib.
+# zsign is an optional, separately installed native program, not a pip package.
